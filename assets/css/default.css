@@ -147,31 +147,10 @@ div {
   padding-right: 10px;
 }
 
-
 /*
- * Buttons
+ * Compilations
  */
 
-body a.pure-button {
-  color: rgba(0,0,0,.8);
-}
-
-button.pure-button-primary,
-body a.pure-button-primary,
-.channel-owner:hover,
-.channel-owner:focus {
-  background-color: #a0a0a0;
-  color: rgba(35, 35, 35, 1);
-}
-
-.pure-button-primary,
-.pure-button-secondary {
-  border: 1px solid #a0a0a0;
-  border-radius: 3px;
-  margin: 0 .4em;
-}
-
-<<<<<<< HEAD
 input.compilation-video-timestamp {
   width: 50px;
   height: 20px;
@@ -229,8 +208,33 @@ div.compilation-video-timestamp-set {
 div.compilation-video-thumbnail {
   position: relative;
   box-sizing: border-box;
+} 
+
+
+
+/*
+ * Buttons
+ */
+
+body a.pure-button {
+  color: rgba(0,0,0,.8);
 }
-=======
+
+button.pure-button-primary,
+body a.pure-button-primary,
+.channel-owner:hover,
+.channel-owner:focus {
+  background-color: #a0a0a0;
+  color: rgba(35, 35, 35, 1);
+}
+
+.pure-button-primary,
+.pure-button-secondary {
+  border: 1px solid #a0a0a0;
+  border-radius: 3px;
+  margin: 0 .4em;
+}
+
 .pure-button-secondary.low-profile {
   padding: 5px 10px;
   margin: 0;
@@ -246,7 +250,6 @@ div.compilation-video-thumbnail {
 /*
  * Video thumbnails
  */
->>>>>>> upstream/master
 
 div.thumbnail {
   position: relative;
