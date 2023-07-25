@@ -329,6 +329,13 @@ def get_compilation(compid : String)
   #end
 end
 
+def update_first_video_id(compid : String)
+  compilation_index_array = compilation.index
+  first_index =  compilation_index_array[0]
+  first_id = Invidious::Database::CompilationVideos.select_id_from_index(first_index)
+  Invidious::Database::Compilations.update_first_video_id(compid, first_id)
+end
+
 def get_compilation_videos(compilation : InvidiousCompilation | Compilation, offset : Int32, video_id = nil)
   LOGGER.info("1. get_compilation")
   LOGGER.info("Getting compilation")

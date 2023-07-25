@@ -445,10 +445,12 @@ module Invidious::Routes::Compilations
 
       Invidious::Database::CompilationVideos.insert(compilation_video)
       Invidious::Database::Compilations.update_video_added(compilation_id, compilation_video.index)
+      update_first_video_id(compilation_id)
     when "action_remove_video"
       index = env.params.query["set_video_id"]
       Invidious::Database::CompilationVideos.delete(index)
       Invidious::Database::Compilations.update_video_removed(compilation_id, index)
+      update_first_video_id(compilation_id)
     when "action_move_video_before"
       # TODO: Compilation stub
       #video_index = compilation.index
@@ -473,6 +475,7 @@ module Invidious::Routes::Compilations
         compilation_index_array.insert(compilation_index_array_position-1,compilation_video[0].index)
         Invidious::Database::Compilations.move_video_before(compilation_id, compilation_index_array)
       end
+      update_first_video_id(compilation_id)
     else
       return error_json(400, "Unsupported action #{action}")
     end

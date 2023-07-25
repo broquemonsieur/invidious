@@ -12,7 +12,7 @@
         <div class="flex-right button-container">
         <%- if compilation.is_a?(InvidiousCompilation) && compilation.author == user.try &.email -%>
             <div class="pure-u">
-                <a class="pure-button pure-button-secondary low-profile" dir="auto" href="/play_compilation?list=<%= compid %>">
+                <a class="pure-button pure-button-secondary low-profile" dir="auto" href="/watch?v=<%= compilation.first_video_id %>&list=<%= compid %>&index=<%= compilation.index[0] %>">
                     <i class="icon ion-md-play"></i>&nbsp;<%= translate(locale, "compilation_button_play") %>
                 </a>
             </div>
