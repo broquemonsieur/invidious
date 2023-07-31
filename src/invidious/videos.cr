@@ -411,6 +411,7 @@ def fetch_video(id, region)
 end
 
 def process_continuation(query, plid, id)
+  LOGGER.info("we have plid is #{plid}, query is #{query}, id is #{id}")
   continuation = nil
   if plid
     if index = query["index"]?.try &.to_i?
@@ -420,7 +421,7 @@ def process_continuation(query, plid, id)
     end
     continuation ||= 0
   end
-
+  LOGGER.info("continuation is #{continuation}")
   continuation
 end
 
