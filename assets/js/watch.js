@@ -103,6 +103,7 @@ function continue_autoplay(event) {
 }
 
 function get_compilation(compid) {
+    LOGGER.info("get compilation is invoked")
     var compilation = document.getElementById('compilations');
 
     compilation.innerHTML = spinnerHTMLwithHR;
@@ -383,9 +384,11 @@ if (video_data.play_next) {
 }
 
 addEventListener('load', function (e) {
+    LOGGER.info("Loading comp")
     if (video_data.plid)
         get_playlist(video_data.plid);
     if (video_data.compid)
+        LOGGER.info("Found comp")
         get_compilation(video_data.compid);
     if (video_data.params.comments[0] === 'youtube') {
         get_youtube_comments();

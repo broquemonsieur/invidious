@@ -40,15 +40,17 @@ module Invidious::Routes::Watch
     end
 
     LOGGER.info("6. handle pre gsub #{env.params.query}")
-    if env.params.query["list"].starts_with? "IVPL"
-      plid = env.params.query["list"]?.try &.gsub(/[^a-zA-Z0-9_-]/, "")
-      LOGGER.info("6. handle post gsub #{env.params.query}")
-      continuation = process_continuation(env.params.query, plid, id)
-    elsif env.params.query["list"].starts_with? "IVCMP"   
-      compid = env.params.query["list"]?.try &.gsub(/[^a-zA-Z0-9_-]/, "")
-      LOGGER.info("6. handle post gsub #{env.params.query}")
-      continuation = process_continuation(env.params.query, compid, id)
-    end  
+    #if !env.params.query["list"].nil?
+      if env.params.query["list"]?.try &.starts_with? "IVPL"
+        plid = env.params.query["list"]?.try &.gsub(/[^a-zA-Z0-9_-]/, "")
+        LOGGER.info("6. handle post gsub #{env.params.query}")
+        continuation = process_continuation(env.params.query, plid, id)
+      elsif env.params.query["list"]?.try &.starts_with? "IVCMP"   
+        compid = env.params.query["list"]?.try &.gsub(/[^a-zA-Z0-9_-]/, "")
+        LOGGER.info("6. handle post gsub #{env.params.query}")
+        continuation = process_continuation(env.params.query, compid, id)
+      end  
+    #end  
 
     nojs = env.params.query["nojs"]?
 
